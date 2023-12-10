@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+     <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <div class="form-wrap">
+          <div class="heading">
+            <span >Spelling error For Sale Deed</span>
+            
+          </div>
+         
+          <form action="" class="forms-section">
+             <!-- form1 -->
+             <div class="tab " id="form1">
+              <div class="forms">
+                <h2>Affiant's Information</h2>
+               <input
+                 type="text"
+                 name="name1"
+                 id="name1"
+                 placeholder="Affiant's Name"
+                 oninput="updateDocument()"
+                 required
+               />
+               <input
+                 type="text"
+                 name="name2"
+                 id="name2"
+                 placeholder="Affiant's Second Name"
+                 oninput="updateDocument()"
+                 required
+               />
+               <input
+                 type="text"
+                 name="name3"
+                 id="name3"
+                 placeholder="Affiant's Third Name:( If any)"
+                 oninput="updateDocument()"
+               />
+               <input type="text" name="age" id="age" placeholder="Age" required="updateDocument()" />
+               <input
+                 type="text"
+                 name="address"
+                 id="address"
+                 placeholder="Address"
+                 oninput="updateDocument()"
+                 required
+               />
+              </div>
+               
+             </div>
+  
+            <!-- form2 -->
+            <div class="tab " id="form2">
+              <div class="forms">
+                <h2>Personal information</h2>
+                <input
+                  type="text"
+                  name="panno"
+                  id="panno"
+                  placeholder="PAN No"
+                  oninput="updateDocument()"
+                  required
+                  pattern=""
+                />
+                <input
+                  type="text"
+                  name="panname"
+                  id="panname"
+                  placeholder="Name as per PAN Card"
+                  oninput="updateDocument()"
+                />
+                <input
+                  type="text"
+                  name="aadharno"
+                  id="aadharno"
+                  placeholder="Aadhar No."
+                  pattern="\d{12}"
+                  oninput="updateDocument()"
+                />
+                <input
+                  type="text"
+                  name="aadharname"
+                  id="aadharname"
+                  placeholder="Name as per Aadhar Card"
+                  oninput="updateDocument()"
+                />
+                  <select name="idType" id="idType" onchange="toggleInputFields()">
+                    <option value="">Select ID Type</option>
+                    <option value="electionCard">Election Card</option>
+                    <option value="drivingLicense">Driving License</option>
+                    <option value="passport">Passport</option>
+                    <option value="otherProof">Other ID Proof</option>
+                  </select>
+                  <div id="inputFields" class="hidden">
+                    <input 
+                    
+                      type="text"
+                      name="selectedNo"
+                      id="selectedNo"
+                      placeholder="no"
+                      oninput="updateDocument()"
+                    />
+                    <input
+                      type="text"
+                      name="selectedName"
+                      id="selectedName"
+                      placeholder="Name as per ID"
+                      oninput="updateDocument()"
+                    />
+                  </div>
+              </div>
+             
+  
+            </div>
+  
+            <!-- form3 -->
+            <div class="tab " id="form3">
+              <div class="forms">
+                <div>
+                  <h2>Property information</h2>
+                  <fieldset>
+                    <legend>Title Document</legend>
+                    <label>
+                      <input
+                        type="checkbox"
+                        name="titledoc"
+                        value="allotmentLetter"
+                        onchange="updateSelection()"
+                      />
+                      Allotment Letter
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        name="titledoc"
+                        value="titleAgreement"
+                        onchange="updateSelection()"
+                      />
+                      Title Agreement
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        name="titledoc"
+                        value="shareCertificate"
+                        onchange="updateSelection()"
+                      />
+                      Share Certificate
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        name="titledoc"
+                        value="chainAgreement"
+                        onchange="updateSelection()"
+                      />
+                      Chain Agreement
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        name="titledoc"
+                        value="otherDocument"
+                        onchange="updateSelection()"
+                      />
+                      Or Any other document
+                    </label>
+                  </fieldset>
+                </div>
+                <input
+                  type="text"
+                  name="propertyname"
+                  id="propertyname"
+                  placeholder="Name as per Title document of the Property"
+                  oninput="updateDocument()"
+                />
+                <input
+                  type="text"
+                  name="propertyAddress"
+                  id="propertyAddress"
+                  oninput="updateDocument()"
+                  placeholder="Detail Address Of Property"
+                />
+                <div>
+                  <input type="checkbox" name="propertyAdd" id="propertyAdd" onchange="addressCheck()" placeholder="Detail Address Of Property"/>
+                  <span>Same as client address</span>
+                </div>
+                <input
+                  type="text"
+                  name="purchasername"
+                  id="purchasername"
+                  placeholder="Intend to sale In favour of"
+                  oninput="updateDocument()"
+                />
+                <input
+                  type="text"
+                  name="place"
+                  id="place"
+                  placeholder="place"
+                  oninput="updateDocument()"
+                />
+                <input
+                  type="date"
+                  name="date"
+                  id="date"
+                  oninput="updateDocument()"
+                />
+              </div>
+            </div>
+            <div style="float: right; margin-top: 10px;">
+              <button type="button" id="prevBtn" onclick="nextPrev(-1)">Prev</button>
+              <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="form-container " id="pdfContent">
+        <div class="formfill">
+          <div>
+            <div >
+              <h2 class="formfill-heading">AFFIDAVITE</h2>
+            </div>
+            <div class="section1">
+              I, <span class="affname1 uppercase highlight"></span> alias MR.
+              <span class="affname2 uppercase highlight"></span> alias
+              <span class="affname3 uppercase highlight"></span> , age about
+              <span class="affage uppercase highlight"></span> years, an adult
+              Indian inhabitant of Mumbai residing at
+              <span class="affaddress uppercase highlight"></span>, do hereby
+              state on solemn affirmation as under –
+            </div>
+          </div>
+          <div >
+            <div class="section">
+              <span class="numbers">1.</span><p>The deponent herein and holding the Income Tax PAN
+                Card bearing No.<span class="affpanno uppercase highlight"></span>
+                and my Name appear on Card as
+                <span class="affpanname uppercase highlight"></span>.</p>
+            </div>
+            <div class="section">
+              <span class="numbers">2.</span><p>My name appeared on AADHAR Card bearing No.
+                <span class="affaadharno uppercase highlight"></span> and my Name
+                appear on Adhar Card as <span class="affaadharname uppercase highlight"></span></p>
+            </div>
+            <div class="section">
+              <span class="numbers">3.</span><p>My name appeared on
+                <span class="idproof uppercase highlight"></span> bearing No.<span
+                  class="idproofno uppercase highlight"
+                ></span>
+                and my Name appear on
+                <span class="idproof uppercase highlight"></span>Card as
+                <span class="idproofname uppercase highlight"></span>.</p>
+            </div>
+            <div class="section">
+              <span class="numbers">4.</span><p>I herewith declares and confirms that my names
+                appearon  <span class="titledocs uppercase highlight"></span>. and  <span class="titledocs uppercase highlight"></span>. is as <span class="titledocname uppercase highlight"></span>. in respect to <span class="titledocsadress uppercase highlight"></span>. and other
+                title documents.</p>
+            </div>
+            <div class="section">
+              <span class="numbers">5.</span><p>I intends to sell/transfer my flat to<span class="purchaserfullname uppercase highlight"></span>.</p>
+            </div>
+            <div class="section">
+              <span class="numbers">6.</span><p>I further state that difference in names may create
+                confusion as to the identity of the person, to dispel that confusion
+                I hereby assent and declare that in spite of the differences of the
+                names between <span class="affname1 uppercase highlight"></span> and <span class="affname2 uppercase highlight"></span> the name are of the same person. This is true.</p>
+            </div>
+            <div class="section">
+              <span class="numbers">7.</span><p>I hereby undertake to indemnify and indemnified with
+                the concerned authorities and THE Purchaser MR. <span class="purchaserfullname uppercase highlight"></span>.
+              for any loss, action and/or claim, damages which may arise on account of the transfer of the said flat, in favor of<span class="purchaserfullname uppercase highlight"></span>.
+              dueto difference in the name appeared in the documentary record.</p>
+            </div>
+            <div class="section">
+              <span class="numbers">8.</span><p> I am making this affidavit to be submitted before
+                the concerned Sub- Registrar Office.</p>
+            </div>
+            <div class="section">
+              <span class="numbers">9.</span><p>Whatever stated herein above is true and correct to
+                the best of my knowledge and belief, if statement found false,
+                frivolous, vexatious then I shall be liable to be prosecute U/s 199,
+                200 of Indian Penal Code 1860.</p>
+            </div>
+          </div>
+          <div>
+            <p>(Solemnly affirmed at <span class="location uppercase highlight">)</span>.
+          </p>
+            <p>(This <span class="date uppercase highlight">)</span>.
+           </p>
+          </div>
+          <div class="footer ">
+            <span>DEPONENT</span>
+            <p
+              >MR.<span class="affname1 uppercase highlight"></span>  Alias <span class="affname2 uppercase highlight"></span> MR.<span class="affname3 uppercase highlight"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+ <script src="app.js"></script>
+ <script src="form.js"></script>
+ 
+</html>
