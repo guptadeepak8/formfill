@@ -200,4 +200,9 @@ button {
     display: block;
     margin-right: 5px;
   }
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
 }
