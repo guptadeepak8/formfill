@@ -13,13 +13,13 @@
   <body>
     <div class="container">
       <div class="form-container">
-        <div class="form-wrap">
+        <div class="form-wrap ">
           <div class="heading">
             <span >Spelling error For Sale Deed</span>
-            
+            <button class="preview-button" onclick="handlePreview()">Preview</button>
           </div>
          
-          <form action="" class="forms-section">
+          <form action="" class="forms-section ">
              <!-- form1 -->
              <div class="tab " id="form1">
               <div class="forms">
@@ -225,7 +225,8 @@
           </form>
         </div>
       </div>
-      <div class="form-container " id="pdfContent">
+      <div class="form-container hide-on-back" id="pdfContent">
+          <button class="cancel-btn" onclick="handleCancel()">Cancel</button>
         <div class="formfill">
           <div>
             <div >

@@ -42,7 +42,6 @@ function nextPrev(count){
 
 
 
-
 function handleDownload(){
   const { jsPDF } = window.jspdf;
   const pdfDoc = new jsPDF('l', 'mm', [800, 1200]);
@@ -64,4 +63,14 @@ function handleDownload(){
 
 }
 
+function handlePreview(params) {
+   document.querySelector(".form-wrap").style.display="none";
+   document.getElementById('pdfContent').style.display = 'block';
+   document.querySelector('.cancel-btn').style.display="block"
+}
 
+function handleCancel(){
+  document.querySelector(".form-wrap").style.display="flex";
+  document.getElementById('pdfContent').style.display = 'none';
+  document.querySelector('.cancel-btn').style.display="none"
+}

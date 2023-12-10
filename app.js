@@ -118,30 +118,4 @@ function handleDownload(){
 
 //for preview
 
-// function handlePreview(){
-//   const { jsPDF } = window.jspdf;
-//   const pdfDoc = new jsPDF('l', 'mm', [800, 1200]);
-//   const htmlElement = document.getElementById('pdfContent');
-
-
-//   const contentWidth = htmlElement.offsetWidth;
-//   const contentHeight = htmlElement.offsetHeight;
-
-//   // Calculate the centering position
-//   const centerX = (pdfDoc.internal.pageSize.width - contentWidth) / 2;
-//   const centerY = (pdfDoc.internal.pageSize.height - contentHeight) / 2;
-
-//   pdfDoc.html(htmlElement,{
-//       callback:function(pdf){
-//        const iframe = document.createElement('iframe');
-//       iframe.src = pdf.output('datauristring');
-//       iframe.width = '100%';
-//       iframe.height = '500px'; 
-//       document.body.appendChild(iframe);
-//       },
-//       x: centerX,
-//     y: centerY,
-//   })
-
-// }
 
